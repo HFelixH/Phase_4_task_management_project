@@ -5,7 +5,7 @@ RSpec.describe ProjectsController, type: :controller do
   describe 'GET /' do
     login_user
 
-    context 'from login user' do
+    context 'login user and re-direct to index' do
       it 'should return 200:OK' do
         get :index
         expect(response).to have_http_status(:success)
