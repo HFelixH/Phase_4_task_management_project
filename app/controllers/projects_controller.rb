@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @projects = current_user.projects.all
+    @projects = Project.all
   end
 
   # GET /projects/1
@@ -26,10 +26,9 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.html { redirect_to @project, notice:'Project was successfully created.' }
       else
-        flash[:notice] = 'Error'
-        render 'new'
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
@@ -40,8 +39,7 @@ class ProjectsController < ApplicationController
       if @project.update(project_params)
         format.html { redirect_to project_url(@project), notice: 'Project was successfully updated.' }
       else
-        flash[:notice] = 'Error'
-        render 'edit'
+        format.html { render :edit, status: :unprocessable_entity }
       end
     end
   end
