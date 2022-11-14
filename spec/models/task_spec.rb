@@ -14,6 +14,8 @@ RSpec.describe Task, type: :model do
     expect(task.valid?).to be false
   end
 
+  # Inclusion test
+
   it 'should be invalid without a status' do
     task.status = nil
     expect(task.valid?).to be false

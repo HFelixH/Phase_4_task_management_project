@@ -20,7 +20,6 @@ RSpec.describe User, type: :model do
     @user.password = 1234
     expect(@user.valid?).to be false
   end
-
 end
 
 

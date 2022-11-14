@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
+<%= button_to "logout", destroy_user_session_path, method: :delete %>
+<br>
 
 <p>
   <strong>Name:</strong>
@@ -46,7 +48,7 @@
     <td><%= task.status %></td><br>
     <td><%= link_to 'Show', [task.project, task] %></td>
     <td><%= link_to 'Edit', edit_project_task_path(task.project, task) %></td>
-    <td><%= link_to 'Destroy', [task.project, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', [task.project, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
   </tr>
   <% end %>

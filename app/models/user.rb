@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :projects
   has_many :tasks, through: :projects
 
+  validates :email, presence: true
   validates :email, uniqueness: true
   validates :password, length: { minimum: 5 }
 
